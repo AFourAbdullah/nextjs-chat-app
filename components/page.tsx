@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import style from "./chat.module.css";
 
 interface IMsgDataTypes {
   roomId: String | number;
@@ -37,8 +36,8 @@ const ChatPage = ({ socket, username, roomId }: any) => {
   }, [socket]);
 
   return (
-    <div className={style.chat_div}>
-      <div className={style.chat_border}>
+    <div className={`chat_div`}>
+      <div className={`chat_border`}>
         <div style={{ marginBottom: "1rem" }}>
           <p>
             Name: <b>{username}</b> and Room Id: <b>{roomId}</b>
@@ -49,13 +48,11 @@ const ChatPage = ({ socket, username, roomId }: any) => {
             <div
               key={key}
               className={
-                user == username
-                  ? style.chatProfileRight
-                  : style.chatProfileLeft
+                user == username ? `chatProfileRight` : `chatProfileLeft`
               }
             >
               <span
-                className={style.chatProfileSpan}
+                className={`chatProfileSpan`}
                 style={{ textAlign: user == username ? "right" : "left" }}
               >
                 {user.charAt(0)}
@@ -69,13 +66,13 @@ const ChatPage = ({ socket, username, roomId }: any) => {
         <div>
           <form onSubmit={(e) => sendData(e)}>
             <input
-              className={style.chat_input}
+              className={`chat_input`}
               type="text"
               value={currentMsg}
               placeholder="Type your message.."
               onChange={(e) => setCurrentMsg(e.target.value)}
             />
-            <button className={style.chat_button}>Send</button>
+            <button className={`chat_button`}>Send</button>
           </form>
         </div>
       </div>

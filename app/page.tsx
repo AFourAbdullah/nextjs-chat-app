@@ -1,5 +1,4 @@
 "use client";
-import styles from "./page.module.css";
 import { io } from "socket.io-client";
 import { useState } from "react";
 import ChatPage from "@/components/page";
@@ -30,30 +29,26 @@ export default function Home() {
 
   return (
     <div>
-      <div
-        className={styles.main_div}
-        style={{ display: showChat ? "none" : "" }}
-      >
+      <h2 className="text-center text-2xl text-neutral-800 italic mt-[100px]">
+        NEXT JS CHAT APP
+      </h2>
+      <div className={`main_div`} style={{ display: showChat ? "none" : "" }}>
         <input
-          className={styles.main_input}
+          className={`main_input`}
           type="text"
           placeholder="Username"
           onChange={(e) => setUserName(e.target.value)}
           disabled={showSpinner}
         />
         <input
-          className={styles.main_input}
+          className={`main_input`}
           type="text"
           placeholder="room id"
           onChange={(e) => setroomId(e.target.value)}
           disabled={showSpinner}
         />
-        <button className={styles.main_button} onClick={() => handleJoin()}>
-          {!showSpinner ? (
-            "Join"
-          ) : (
-            <div className={styles.loading_spinner}></div>
-          )}
+        <button className={`main_button`} onClick={() => handleJoin()}>
+          {!showSpinner ? "Join" : <div className={`loading_spinner`}></div>}
         </button>
       </div>
       <div style={{ display: !showChat ? "none" : "" }}>
